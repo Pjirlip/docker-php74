@@ -1,8 +1,9 @@
 services:
-    server:
-      image: #TODO Add image link from Github
+    website:
+      image: ghcr.io/pjirlip/docker-php74:latest
       ports:
         - 80:80
       volumes:
-        - ./webroot:/var/www/html/ 
+        - ./webroot:/var/www/html/
+      restart: unless-stopped
 
