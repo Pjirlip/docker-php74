@@ -1,6 +1,7 @@
 ## HEAD
 FROM  alpine:latest
 LABEL maintainer="Philipp Dippel <dev@pjirlip.eu>"
+LABEL org.opencontainers.image.source=https://github.com/pjirlip/docker-php7
 
 ## SET ENV VARS
 ENV PROVISION_CONTEXT "production"
