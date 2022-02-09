@@ -1,0 +1,10 @@
+#For simple DEV only: docker-compose up --build
+services:
+    server:
+      image: php74
+      build: .
+      ports:
+        - 80:80
+      volumes:
+        - ./webroot:/var/www/html/ 
+
