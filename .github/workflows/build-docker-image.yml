@@ -1,0 +1,20 @@
+name: Build Docker Image and Push to GitHub Registry
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  run:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.2.0
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag php74
+
+      - name: Push Docker Image to GitHub Packages
+        run: |
+          docker login ghcr.io --username ${{ github.repository_owner }} --password ${{ secrets.DOCKER_REG_PAT }}
+          docker tag php74 ghcr.io/Pjirlip/docker-php74
+          docker push docker.pkg.github.com/Pjirlip/docker-php74
