@@ -17,4 +17,4 @@ jobs:
         run: |
           echo ${{ secrets.DOCKER_REG_PAT }} | docker login ghcr.io --username ${{ github.repository_owner }} --password-stdin
           docker tag php74 ghcr.io/pjirlip/docker-php74
-          docker push docker.pkg.github.com/pjirlip/docker-php74
+          docker push ghcr.io/pjirlip/docker-php74
