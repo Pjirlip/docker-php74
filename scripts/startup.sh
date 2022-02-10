@@ -19,7 +19,7 @@ envsubst '${DOCUMENT_ROOT} ${SERVER_NAME}' < /etc/nginx/sites-available/site.con
 # Setup Timezone
 ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone
 
-chown -R web:web /var/www
+chown -R web:web /var/www /var/lib/nginx
 chmod -R 755 /var/www
 
 /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
