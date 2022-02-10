@@ -31,7 +31,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
     vim wget git msmtp musl-locales\
     php7 php7-fpm php7-opcache php7-gd php7-common php7-bcmath php7-intl \
     php7-imap php7-json php7-iconv php7-mbstring php7-mysqli php7-xml php7-zip \
-    php7-openssl php7-curl php7-fileinfo php7-session
+    php7-openssl php7-curl php7-fileinfo php7-session php7-phar
 
 SHELL ["/bin/bash", "-c"]
 COPY ./scripts/*.sh /usr/local/bin/
@@ -44,6 +44,9 @@ COPY ./config/php/pool.conf /etc/php7/php-fpm.d/pool.conf
 COPY ./config/php/php.ini /etc/php7/conf.d/php.ini
 COPY ./config/locale.gen /etc/locale.gen
 RUN chmod +x /usr/local/bin/*.sh
+
+# Install Composer from composer docker image
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ## SETUP
 RUN adduser --disabled-password --uid 1000 --shell /bin/bash --home /home/web web
