@@ -1,3 +1,4 @@
 /webroot/
 !/webroot/index.php
 
+/.DS_Store

@@ -28,7 +28,7 @@ http {
 
     # Logging
     access_log             /dev/fd/1;
-    error_log              /dev/fd/1;
+    error_log              /dev/fd/2 warn;
 
     # SSL
     ssl_session_timeout    1d;
