@@ -1,9 +1,8 @@
 # Alpine Docker Image: PHP 7.4 + NGINX
 
 Dockerimage for hosting standart PHP Applications or static html sites with PHP 7.4 + NGINX.
-
+Includes Imagick Lib for Image manipulation and composer (The most used PHP-Project dependency manager)
 The container can be used directly, but is designed to run behind a proxy like Traefik, which also takes care of the SSL/TLS encryption.
-The image is as light as possible and occupies only: 191MB
 
 ----
 
