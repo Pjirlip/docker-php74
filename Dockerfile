@@ -29,7 +29,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
     nginx \
     gettext \
     vim wget git msmtp musl-locales \
-    file autoconf make gcc g++ imagemagick-dev libtool zip unzip libxml2-dev \
+    file autoconf make gcc g++ imagemagick-dev libtool zip unzip libxml2-dev gnu-libiconv \
     freetype libpng libjpeg-turbo freetype-dev libpng-dev jpeg-dev libjpeg libjpeg-turbo-dev\ 
     php7 php7-fpm php7-opcache php7-pear php7-dev php7-gd php7-common php7-bcmath php7-intl \
     php7-imap php7-json php7-iconv php7-mbstring php7-mysqli php7-xml php7-zip php7-pcntl\
