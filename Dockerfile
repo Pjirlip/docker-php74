@@ -30,13 +30,18 @@ RUN apk update && apk upgrade && apk add --no-cache \
     nginx \
     gettext \
     vim wget git msmtp musl-locales \
-    file autoconf make gcc g++ imagemagick-dev libtool libzip-dev libxml2-dev gnu-libiconv oniguruma-dev \
+    file autoconf make gcc g++ imagemagick-dev libtool libzip-dev libxml2-dev oniguruma-dev \
     freetype libpng libjpeg-turbo freetype-dev libpng-dev jpeg-dev libjpeg libjpeg-turbo-dev\ 
     php7 php7-fpm php7-opcache php7-pear php7-dev php7-gd php7-common php7-bcmath php7-intl \
     php7-imap php7-json php7-iconv php7-mbstring php7-mysqli php7-xml php7-zip php7-pcntl\
     php7-openssl php7-curl php7-fileinfo php7-session php7-phar \
     php7-pdo php7-pdo_mysql php7-dom php7-tokenizer php7-exif php7-simplexml php7-xmlwriter
 
+# Workarround for preloadable_libiconv which istn includet anymore in gnu-libiconv
+RUN apk add --no-cache \
+    --repository http://dl-cdn.alpinelinux.org/alpine/v3.13/community/ \
+    --allow-untrusted \
+    gnu-libiconv
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 RUN pecl install imagick
